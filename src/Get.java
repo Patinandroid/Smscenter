@@ -1,15 +1,16 @@
 import java.io.*;
 
 /**
+ * Metoder til at modtage sms.
  * Created by tomas on 11/12/15.
  */
 public class Get {
-	 //Constants
-	 //String shellCommand = "sudo gnokii --identify";
-	 //String shellCommand = "sudo gnokii --smsreader";
-	 String shellCommand = "ls ";
-	 //String shellCommand = "touch test";
-	 //String shellCommand = "echo Blåbærgrød";
+	String shellCommand = "ls ";
+	//Constants
+	//String shellCommand = "sudo gnokii --identify";
+	//String shellCommand = "sudo gnokii --smsreader";
+	//String shellCommand = "touch test";
+	//String shellCommand = "echo Blåbærgrød";
 
 	public void text(){
 		try{
@@ -25,7 +26,6 @@ public class Get {
 			System.out.println("IOException caught: " + e);
 		}
 	}
-
 	public void printStderr(Process p) throws IOException{
 		System.out.println("Printing from stderr: ");
 		InputStream stderr = p.getErrorStream();
@@ -34,7 +34,6 @@ public class Get {
 			System.out.print((char)i);
 		}
 	}
-
 	public void printStdinLine(Process p) throws IOException{
 		System.out.println("Printing from stdin");
 		BufferedReader stdin = new BufferedReader(new InputStreamReader(p.getInputStream(), "ISO-8859-1"));
@@ -43,7 +42,6 @@ public class Get {
 			System.out.println(line);
 		}
 	}
-
 	public void printStdinByte(Process p) throws IOException{
 		System.out.println("Printing from stdinByte");
 		InputStreamReader stdin = new InputStreamReader(p.getInputStream(), "UTF-8");
